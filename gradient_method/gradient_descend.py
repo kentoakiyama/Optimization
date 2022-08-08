@@ -1,5 +1,4 @@
 import numpy as np
-from tqdm import tqdm
 
 class GradientDescent:
     def __init__(self, func, der, alpha=0.1, max_iters=100, xi=0.1, tau=0.9, tols=1e-10, min_max=None, verbosity=0):
@@ -31,15 +30,19 @@ class GradientDescent:
             if alpha <= 1e-10:
                 break
         return alpha
-        
+    
+    def _print_verbosity(self, step, x, y, deriv):
+        x_string = ', '.join([f'{round(i, 5)}'.rjust(7) for i in x])
+        deriv_string = ', '.join([f'{round(i, 5)}'.rjust(7) for i in deriv])
+        print(f'Step {step: >5}: '+ x_string + f', {round(y, 5): >7}, ' +  deriv_string)
 
-    def minimize(self, x_start):
+    def minimize(self, x_start, verbosity=0):
         '''
         x_start: 初期解: eg.) np.array([1., 2.])
         '''
         x = np.array(x_start.copy())
         
-        for _ in tqdm(range(self.max_iters)):
+        for i in range(self.max_iters):
             y = self.func(x)
             deriv = self.der(x)
             
@@ -50,6 +53,10 @@ class GradientDescent:
             if np.linalg.norm(deriv) <= self.tols:
                 break
             
+            if verbosity != 0:
+                if (i+1) % verbosity == 0:
+                    self._print_verbosity(i+1, x, y, deriv)
+
             if self.alpha is None:
                 alpha = self._calc_alpha(x, y, deriv)
             else:
