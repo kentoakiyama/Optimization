@@ -20,6 +20,14 @@ gd.minimize(x_start, verbosity)
 
 で動かします。
 
+結果は、
+
+- gd.y_history -> 各ステップの目的関数のリスト
+- gd.x_history -> 各ステップの座標のリスト
+- gd.der_history -> 各ステップの方向微係数のリスト
+
+で取得できます。
+
 GradientDescentの主な引数
 - func: 目的関数（最小化）
 - deriv: 目的関数の微分
