@@ -47,3 +47,8 @@ minimizeの引数
 ## SQP method
 
 ## Dynamic programing
+
+
+# 参考文献
+## Gradient descent
+- [直線探索を使った最急降下法をPythonで実装](https://helve-blog.com/posts/math/gradient-descent-armijo/#:~:text=%E7%9B%B4%E7%B7%9A%E6%8E%A2%E7%B4%A2%20(line%20search)%20%E3%81%AF,%E8%A8%98%E4%BA%8B%E3%81%A7%E3%81%AF%E5%89%8D%E8%80%85%E3%81%AE%E3%81%BF%E6%89%B1%E3%81%86%E3%80%82)
