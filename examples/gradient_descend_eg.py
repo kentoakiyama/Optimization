@@ -4,7 +4,7 @@ sys.path.append(os.path.abspath(os.path.dirname(os.path.dirname(__file__))))
 
 import numpy as np
 
-from gradient_method.gradient_descend import GradientDescent
+from gradient_method.gradient_descent import GradientDescent
 
 def main():
     # 目的関数(Objective function)
