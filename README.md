@@ -20,13 +20,15 @@ gd.minimize(x_start, verbosity)
 
 で動かします。
 
-func: 目的関数（最小化）
-deriv: 目的関数の微分
-alpha: 更新幅（Noneに設定すると直線探索を用いてalphaを決定します）
-max_iters: 最大更新回数
+GradientDescentの主な引数
+- func: 目的関数（最小化）
+- deriv: 目的関数の微分
+- alpha: 更新幅（Noneに設定すると直線探索を用いてalphaを決定します）
+- max_iters: 最大更新回数
 
-x_start: 初期解
-verbosity: ログ出力の頻度
+minimizeの引数
+- x_start: 初期解
+- verbosity: ログ出力の頻度
 
 それ以外の引数についてはソースコードをご覧ください。
 
