@@ -1,9 +1,9 @@
 import numpy as np
 
 class GradientDescent:
-    def __init__(self, func, der, alpha=0.1, max_iters=100, xi=0.1, tau=0.9, tols=1e-10, min_max=None):
+    def __init__(self, func, deriv, alpha=0.1, max_iters=100, xi=0.1, tau=0.9, tols=1e-10, min_max=None):
         self.func = func            # 目的関数（最小化）
-        self.der = der              # 勾配を計算する関数
+        self.deriv = deriv              # 勾配を計算する関数
         self.alpha = alpha          # 更新幅（Noneの場合は直線探索を使用）
         self.max_iters = max_iters  # 最大更新回数
         self.xi = xi                # アルミ法の条件
@@ -13,7 +13,7 @@ class GradientDescent:
         
         self.y_history = []
         self.x_history = []
-        self.der_history = []
+        self.deriv_history = []
         
     def _mod_x(self, x):
         # min_maxが指定されていたらクリップ、それ以外はそのまま
@@ -23,13 +23,14 @@ class GradientDescent:
             return x
     
     def _calc_alpha(self, x, y, deriv):
-        if self.alpha is not None:
+        # 更新幅の計算
+        if self.alpha is None:
             alpha = 5
             while (self.func(self._mod_x(x-alpha*deriv)) > y - self.xi*alpha*np.dot(deriv, deriv)):
                 alpha = self.tau * alpha
                 if alpha <= 1e-10:
                     break
-            return self.alpha
+            return alpha
         else:
             return self.alpha
     
@@ -46,11 +47,11 @@ class GradientDescent:
         
         for i in range(self.max_iters):
             y = self.func(x)
-            deriv = self.der(x)
+            deriv = self.deriv(x)
             
             self.y_history.append(y.copy())
             self.x_history.append(x.copy())
-            self.der_history.append(deriv.copy())
+            self.deriv_history.append(deriv.copy())
             
             if np.linalg.norm(deriv) <= self.tols:
                 break
@@ -60,7 +61,7 @@ class GradientDescent:
                     self._print_verbosity(i+1, x, y, deriv)
 
             alpha = self._calc_alpha(x, y, deriv)
-            
+
             x -= alpha*deriv
             x = self._mod_x(x)
         return {'step': i,
