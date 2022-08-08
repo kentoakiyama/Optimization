@@ -7,6 +7,29 @@
 - [Dynamic programing (in future)](#dynamic-programing)
 
 ## Gradient Descent
+最急降下法を用いた最適化になります。
+
+サンプルコードをexamples/gradient_descent_eg.pyに示しているので御覧ください。
+
+簡単に使い方を説明しますと、
+
+```python
+gd = GradientDescent(func, deriv, alpha, max_iters, ...)
+gd.minimize(x_start, verbosity)
+```
+
+で動かします。
+
+func: 目的関数（最小化）
+deriv: 目的関数の微分
+alpha: 更新幅（Noneに設定すると直線探索を用いてalphaを決定します）
+max_iters: 最大更新回数
+
+x_start: 初期解
+verbosity: ログ出力の頻度
+
+それ以外の引数についてはソースコードをご覧ください。
+
 
 ## Newton method
 
