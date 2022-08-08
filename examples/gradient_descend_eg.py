@@ -20,7 +20,7 @@ def main():
     x_start = np.array([10., 10.])
 
     gd = GradientDescent(func, deriv, alpha=None)
-    gd.minimize(x_start, verbosity=10)
+    result = gd.minimize(x_start, verbosity=10)
 
 if __name__ == '__main__':
     main()
