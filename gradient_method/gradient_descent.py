@@ -63,3 +63,7 @@ class GradientDescent:
             
             x -= alpha*deriv
             x = self._mod_x(x)
+        return {'step': i,
+                'x': x,
+                'y': y,
+                'deriv': deriv}
