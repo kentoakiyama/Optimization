@@ -15,13 +15,13 @@
 
 ```python
 gd = GradientDescent(func, deriv, alpha, max_iters, ...)
-gd.minimize(x_start, verbosity)
+result = gd.minimize(x_start, verbosity)
 ```
 
 で動かします。
 
 結果は、
-
+- 返り値(return) -> {'step': 最終ステップ数, 'x': 座標値, 'y': 目的関数の値, 'deriv': 方向微係数}
 - gd.y_history -> 各ステップの目的関数のリスト
 - gd.x_history -> 各ステップの座標のリスト
 - gd.der_history -> 各ステップの方向微係数のリスト
