@@ -10,7 +10,7 @@ class GradientDescent:
         self.tau = tau              # 直線探索時の更新幅の変化量
         self.tols = tols            # 方向微係数の大きさ
         self.min_max = min_max      # 最大値と最小値のタプル, (min_array, max_array)
-        self.verbosity = verbosity
+        self.verbosity = verbosity  # ログ出力の頻度（0なら出力しない）
         
         self.y_history = []
         self.x_history = []
