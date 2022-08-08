@@ -1,7 +1,7 @@
 import numpy as np
 
 class GradientDescent:
-    def __init__(self, func, der, alpha=0.1, max_iters=100, xi=0.1, tau=0.9, tols=1e-10, min_max=None, verbosity=0):
+    def __init__(self, func, der, alpha=0.1, max_iters=100, xi=0.1, tau=0.9, tols=1e-10, min_max=None):
         self.func = func            # 目的関数（最小化）
         self.der = der              # 勾配を計算する関数
         self.alpha = alpha          # 更新幅（Noneの場合は直線探索を使用）
@@ -10,7 +10,6 @@ class GradientDescent:
         self.tau = tau              # 直線探索時の更新幅の変化量
         self.tols = tols            # 方向微係数の大きさ
         self.min_max = min_max      # 最大値と最小値のタプル, (min_array, max_array)
-        self.verbosity = verbosity  # ログ出力の頻度（0なら出力しない）
         
         self.y_history = []
         self.x_history = []
