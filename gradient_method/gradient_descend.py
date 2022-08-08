@@ -24,12 +24,15 @@ class GradientDescent:
             return x
     
     def _calc_alpha(self, x, y, deriv):
-        alpha = 5
-        while (self.func(self._mod_x(x-alpha*deriv)) > y - self.xi*alpha*np.dot(deriv, deriv)):
-            alpha = self.tau * alpha
-            if alpha <= 1e-10:
-                break
-        return alpha
+        if self.alpha is not None:
+            alpha = 5
+            while (self.func(self._mod_x(x-alpha*deriv)) > y - self.xi*alpha*np.dot(deriv, deriv)):
+                alpha = self.tau * alpha
+                if alpha <= 1e-10:
+                    break
+            return self.alpha
+        else:
+            return self.alpha
     
     def _print_verbosity(self, step, x, y, deriv):
         x_string = ', '.join([f'{round(i, 5)}'.rjust(7) for i in x])
@@ -57,10 +60,7 @@ class GradientDescent:
                 if (i+1) % verbosity == 0:
                     self._print_verbosity(i+1, x, y, deriv)
 
-            if self.alpha is None:
-                alpha = self._calc_alpha(x, y, deriv)
-            else:
-                alpha = self.alpha
+            alpha = self._calc_alpha(x, y, deriv)
             
             x -= alpha*deriv
             x = self._mod_x(x)
