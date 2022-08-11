@@ -47,7 +47,7 @@ minimizeの引数
 ## SQP method
 
 ## Dynamic programing
-
+これはdevelopでさξされている
 
 # 参考文献
 ## Gradient descent
