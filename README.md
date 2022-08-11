@@ -45,7 +45,7 @@ minimizeの引数
 ## Newton method
 
 ## SQP method
-
+競合するんじゃね
 ## Dynamic programing
 これはdevelopでさξされている
 
