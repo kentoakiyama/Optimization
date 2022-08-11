@@ -48,6 +48,7 @@ mainで作成されている
 
 ## SQP method
 競合すると思います
+
 ## Dynamic programing
 これはdevelopでさξされている
 
