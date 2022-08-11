@@ -44,6 +44,8 @@ minimizeの引数
 
 ## Newton method
 
+mainで作成されている
+
 ## SQP method
 
 ## Dynamic programing
