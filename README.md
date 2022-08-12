@@ -44,10 +44,13 @@ minimizeの引数
 
 ## Newton method
 
+mainで作成されている
+
 ## SQP method
+競合すると思います
 
 ## Dynamic programing
-
+これはdevelopでさξされている
 
 # 参考文献
 ## Gradient descent
